@@ -1,0 +1,42 @@
+#card-container{
+  padding: 0 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 275px;
+  margin: 10px;
+  background-color: cadetblue;
+}
+body{
+  background:wheat;
+}
+nav{
+  background:CornFlowerBlue;
+}
+#image{ 
+  position: relative; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+}
+.sage { 
+  position: relative; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+}
+
+.sage::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.35);
+}
