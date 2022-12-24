@@ -16,6 +16,7 @@ import Hadith from './pages/Hadith/Hadith';
 function App() {
   const [user, setUser] = useState(authService.getUser());
   const [verse,setVerse]=useState()
+  const [quran,setQuran]=useState()
   const navigate = useNavigate()
   const handleLogout = () => {
     authService.logout();
@@ -29,6 +30,10 @@ function App() {
     const ayah = await quranService.getVerse(num)
     setVerse(ayah)
   }
+  async function getWholeQuran(){
+    const whole = await quranService.getAll()
+    setQuran(whole)
+  }
   return (
     <>
   <NavBarTop  user={user} handleLogout={handleLogout} />
@@ -37,7 +42,7 @@ function App() {
       <Route path="/signup"element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}></Route>
       <Route path='/'element={<Home getRandomVerse={getRandomVerse} verse={verse} />} />
       <Route path='/qibla'element={<Qiblah />} />
-      <Route path='/quran'element={<Quran />} />
+      <Route path='/quran'element={<Quran getWholeQuran={getWholeQuran} quran={quran} />} />
       <Route path='/hadith'element={<Hadith />} />
       <Route  path='/account'element={<Account user={user}/>} />
     </Routes>
