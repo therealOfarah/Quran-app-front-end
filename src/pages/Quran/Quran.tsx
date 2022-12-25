@@ -8,10 +8,6 @@ type Props= {
 function Quran(props:Props) {
   const quran = props.quran
   const getWholeQuran = props.getWholeQuran()
-  useEffect(()=>{
-    // getWholeQuran()
-  },[])
-
   return (
     <div>
       <>
@@ -27,9 +23,15 @@ function Quran(props:Props) {
       <>
       {quran?.surahs.map((chap:any)=>
         <>
+        <h3 style={{textAlign:"center",marginTop:"5px", backgroundColor:"lightgrey"}}>{chap.name}</h3>
         {chap.ayahs?.map((verse:any)=>
           <>
-          <h3 style={{textAlign:"center"}}>{verse.text}</h3>
+          {verse.text === "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ" ? 
+            <h3 style={{textAlign:"center", color:"lightgrey"}}>{verse.text}</h3> 
+            :
+            <h3 style={{textAlign:"end"}}>{verse.text}&#x06DD;</h3>
+          }
+          {/* {verse.text.includes('۞') === true ? '۞' :''} */}
           </>
         )}
         </>

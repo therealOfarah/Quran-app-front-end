@@ -7,10 +7,12 @@ type Props={
 }
 function NavBarTop(props:Props) {
   const [click, setClick] = useState(false);
-
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
-  
+  const [playing, setplaying] = useState(false);
+  const [paused, setpaused] = useState(false);
+  // const formatedTimer = moment(timer).format("YYYY-MM-DD HH:mm:ss")
+
   return (
     <div>
       <div className={click ? "main-container" : ""}  onClick={()=>Close()} />
@@ -32,6 +34,23 @@ function NavBarTop(props:Props) {
               </NavLink>
             </li>
             <li className="nav-item">
+            {!playing && (
+        <div>
+          After:{" "}
+          {/* <ReactMomentCountDown
+            toDate={formatedTimer}
+            sourceFormatMask="YYYY-MM-DD HH:mm:ss"
+            onCountdownEnd={() => {
+              if (paused) {
+                return null;
+              }
+              setplaying(true);
+              showAdhanNotification();
+              console.log("counter ok");
+            }}
+          /> */}
+        </div>
+      )}
               <NavLink
                 
                 to="/hadith"
