@@ -4,6 +4,8 @@ import NavBarTop from './components/NavBar/NavBar';
 //service files
 import * as authService from './services/authServices'
 import * as quranService from './services/quranServices'
+import * as hadithService from './services/hadithServices'
+
 //pages
 import Login from './pages/Login/Login';
 import Signup from './pages/SignUp/SignUp'
@@ -12,11 +14,15 @@ import Home from './pages/Home/Home';
 import Qiblah from './pages/Qiblah/Qiblah';
 import Quran from './pages/Quran/Quran';
 import Hadith from './pages/Hadith/Hadith';
+import HadithChapters from './pages/HadithChapters/HadithChapters';
+import Surah from './pages/Surah/Surah';
 //
 function App() {
   const [user, setUser] = useState(authService.getUser());
   const [verse,setVerse]=useState()
   const [quran,setQuran]=useState()
+  const [surah,setSurah]=useState()
+  const [hadith,setHadith]=useState()
   const navigate = useNavigate()
   const handleLogout = () => {
     authService.logout();
@@ -34,6 +40,14 @@ function App() {
     const whole = await quranService.getAll()
     setQuran(whole)
   }
+  async function getSurah(surah:number){
+    const sura = await quranService.getSurah(surah)
+    setSurah(sura)
+  }
+  async function getHadithChapters() {
+    const chapters = await hadithService.getChapters()
+    setHadith(chapters)
+  }
   return (
     <>
   <NavBarTop  user={user} handleLogout={handleLogout} />
@@ -43,7 +57,9 @@ function App() {
       <Route path='/'element={<Home getRandomVerse={getRandomVerse} verse={verse} />} />
       <Route path='/qibla'element={<Qiblah />} />
       <Route path='/quran'element={<Quran getWholeQuran={getWholeQuran} quran={quran} />} />
-      <Route path='/hadith'element={<Hadith />} />
+      <Route path='/quran/:surah'element={<Surah  />} />
+      <Route path='/hadith'element={<Hadith getHadithChapters={getHadithChapters}hadith={hadith} />} />
+      <Route path='/hadith/:id'element={<HadithChapters />} />
       <Route  path='/account'element={<Account user={user}/>} />
     </Routes>
   </>

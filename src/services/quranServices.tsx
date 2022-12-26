@@ -11,3 +11,8 @@ export async function getAll(){
   const data = await res.json()
   return data
 }
+export async function getSurah(surah:number){
+  const res= await fetch(`${BASE_URL}/${surah}`) 
+  const data = await res.json()
+  return data
+}

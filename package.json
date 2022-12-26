@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^5.3.4",
     "react-moment-countdown": "^0.4.2",

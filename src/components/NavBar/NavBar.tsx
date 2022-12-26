@@ -36,7 +36,7 @@ function NavBarTop(props:Props) {
             <li className="nav-item">
             {!playing && (
         <div>
-          After:{" "}
+          {/* After:{" "} */}
           {/* <ReactMomentCountDown
             toDate={formatedTimer}
             sourceFormatMask="YYYY-MM-DD HH:mm:ss"

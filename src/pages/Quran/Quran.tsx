@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { FallingLines } from 'react-loader-spinner'
+import Dropdown from 'react-bootstrap/Dropdown';
+
 type Props= {
   quran:any;
   getWholeQuran:()=>void
@@ -21,9 +23,20 @@ function Quran(props:Props) {
     />
       : 
       <>
+        <Dropdown>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Select Surah
+          </Dropdown.Toggle>
+          <Dropdown.Menu style={{maxHeight:"250px",overflow:"auto"}}>
       {quran?.surahs.map((chap:any)=>
         <>
-        <h3 style={{textAlign:"center",marginTop:"5px", backgroundColor:"lightgrey"}}>{chap.name}</h3>
+          <Dropdown.Item><Link to={`/quran/${chap.name}`} state={chap}>{chap.name}</Link></Dropdown.Item>
+        </>
+      )}
+      </Dropdown.Menu>
+      </Dropdown>
+      {quran?.surahs.map((chap:any)=>
+        <>
         {chap.ayahs?.map((verse:any)=>
           <>
           {verse.text === "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ" ? 
