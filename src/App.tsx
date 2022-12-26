@@ -16,7 +16,20 @@ import Quran from './pages/Quran/Quran';
 import Hadith from './pages/Hadith/Hadith';
 import HadithChapters from './pages/HadithChapters/HadithChapters';
 import Surah from './pages/Surah/Surah';
-//
+//types 
+type V={
+  text: String,
+  surah: {
+    number: Number,
+    name:String,
+    englishName: String,
+    englishNameTranslation: String,
+    numberOfAyahs: Number,
+    revelationType: String
+  },
+  juz: String,
+  page: String,
+}
 function App() {
   const [user, setUser] = useState(authService.getUser());
   const [verse,setVerse]=useState()
@@ -40,9 +53,8 @@ function App() {
     const whole = await quranService.getAll()
     setQuran(whole)
   }
-  async function getSurah(surah:number){
-    const sura = await quranService.getSurah(surah)
-    setSurah(sura)
+  async function saveVerse(verse:V){
+    await quranService.saveVerse(verse)
   }
   async function getHadithChapters() {
     const chapters = await hadithService.getChapters()
@@ -54,7 +66,7 @@ function App() {
     <Routes>
       <Route path="/login"element={<Login handleSignupOrLogin={handleSignupOrLogin} />}></Route>
       <Route path="/signup"element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}></Route>
-      <Route path='/'element={<Home getRandomVerse={getRandomVerse} verse={verse} />} />
+      <Route path='/'element={<Home saveVerse={saveVerse} getRandomVerse={getRandomVerse} verse={verse} />} />
       <Route path='/qibla'element={<Qiblah />} />
       <Route path='/quran'element={<Quran getWholeQuran={getWholeQuran} quran={quran} />} />
       <Route path='/quran/:surah'element={<Surah  />} />
