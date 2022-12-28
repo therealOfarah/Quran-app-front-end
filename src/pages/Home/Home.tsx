@@ -27,12 +27,15 @@ function Home(props:Props) {
     let n1 = generateRandomInteger(6236);
     props.getRandomVerse(n1)
   },[])
-
+  console.log(ver)
   return (
-    <div>
+      <div>
       <h3 style={{fontSize:"40px",textAlign:"center",marginTop:"40vh"}}>{ver?.text}</h3>
       <p style={{fontSize:"40px",textAlign:"center",marginTop:"4vh"}}>{ver?.surah?.name}</p>
-      <button onClick={()=>props.saveVerse(ver)}> Save verse </button>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center", marginTop:"5vh",padding:"10px"}} className="buttons">
+        <button type="button" className="btn btn-outline-success" style={{marginRight:"10px"}} onClick={()=>props.saveVerse(ver)}> Save verse </button>
+        <audio src={ver?.audio} controls autoPlay={false}/>
+      </div>
     </div>
   );
 }
