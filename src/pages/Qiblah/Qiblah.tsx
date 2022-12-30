@@ -12,8 +12,8 @@ function Qiblah() {
           url: 'https://geocodeapi.p.rapidapi.com/GetNearestCities',
           params: {latitude:` ${position.coords.latitude}`, longitude: `${position.coords.longitude}`, range: '0'},
           headers: {
-            'X-RapidAPI-Key': 'c8191abbdcmsha8330ab48a87e61p12b7e2jsnec96d1458208',
-            'X-RapidAPI-Host': 'geocodeapi.p.rapidapi.com'
+            'X-RapidAPI-Key': process.env.API_KEY,
+            'X-RapidAPI-Host': process.env.HOST_KEY
           }
         };
           axios(options)
