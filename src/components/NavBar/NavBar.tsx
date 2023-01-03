@@ -73,11 +73,11 @@ function NavBarTop(props:Props) {
             <li className="nav-item">
               <NavLink
                 
-                to="/qibla"
+                to="/account"
                 className="nav-links active"
                 onClick={()=>click ? handleClick : null}
               >
-                Qibla 
+                Account
               </NavLink>
             </li>
           </ul>

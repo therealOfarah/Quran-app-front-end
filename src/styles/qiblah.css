@@ -1,0 +1,38 @@
+
+.compass {
+  margin: 0;
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(45deg, rgb(2, 6, 1) 0%, rgb(2, 6, 1) 14.286%, rgb(8, 29, 31) 14.286%, rgb(8, 29, 31) 28.572%, rgb(13, 52, 61) 28.572%, rgb(13, 52, 61) 42.858%, rgb(19, 75, 92) 42.858%, rgb(19, 75, 92) 57.144%, rgb(25, 98, 122) 57.144%, rgb(25, 98, 122) 71.43%, rgb(30, 121, 152) 71.43%, rgb(30, 121, 152) 85.716%, rgb(36, 144, 182) 85.716%, rgb(36, 144, 182) 100.002%);
+  background-attachment: fixed;
+}
+
+.arrow {
+  width: 250px;
+  overflow: hidden;
+  transition: all 0.2s;
+  transform: rotate(0deg);
+  display: inline-block;
+}
+
+h1 {
+  color: white;
+  font-weight: 100;
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+}
+
+.units {
+  font-size: 15px;
+}

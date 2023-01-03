@@ -8,16 +8,8 @@ export async function getProfileDetails(profileId: string) {
   });
   return await res.json();
 }
-export async function deleteMovie(id: number) {
+export async function deleteVerse(id: number) {
   const res = await fetch(`${BASE_URL}/movie/${id}`, {
-    method: "DELETE",
-    headers: { Authorization: `Bearer ${tokenService.getToken()}` },
-  });
-  const data = await res.json();
-  return data;
-}
-export async function deleteShow(id: number) {
-  const res = await fetch(`${BASE_URL}/show/${id}`, {
     method: "DELETE",
     headers: { Authorization: `Bearer ${tokenService.getToken()}` },
   });
