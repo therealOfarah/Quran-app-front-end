@@ -69,6 +69,16 @@ function NavBarTop(props:Props) {
               >
                 Quran
               </NavLink>
+            </li> 
+            <li className="nav-item">
+              <NavLink
+                
+                to="/quran"
+                className="nav-links active"
+                onClick={()=>click ? handleClick : null}
+              >
+                Qibla
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink

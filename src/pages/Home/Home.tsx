@@ -34,7 +34,7 @@ function Home(props:Props) {
       <p style={{fontSize:"40px",textAlign:"center",marginTop:"4vh"}}>{ver?.surah?.name}</p>
       <div style={{display:"flex",alignItems:"center",justifyContent:"center", marginTop:"5vh",padding:"10px"}} className="buttons">
         <button type="button" className="btn btn-outline-success" style={{marginRight:"10px"}} onClick={()=>props.saveVerse(ver)}> Save verse </button>
-        <audio src={ver?.audio} controls autoPlay={false}/>
+        {ver?.audio === undefined || null || '' ? '' : <audio src={ver?.audio || ver.audioSecondary[0]} controls autoPlay={false}/>}
       </div>
     </div>
   );
